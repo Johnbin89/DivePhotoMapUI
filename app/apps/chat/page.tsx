@@ -22,7 +22,7 @@ import { Link, RichTextEditor } from '@mantine/tiptap';
 import { BubbleMenu, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Placeholder from '@tiptap/extension-placeholder';
-import { PATH_DASHBOARD } from '@/routes';
+import { PATH_MAP } from '@/routes';
 import {
   ChatItem,
   ChatsList,
@@ -42,7 +42,7 @@ import { useFetchData } from '@/hooks';
 import classes from './page.module.css';
 
 const items = [
-  { title: 'Dashboard', href: PATH_DASHBOARD.default },
+  { title: 'Dashboard', href: PATH_MAP.public },
   { title: 'Apps', href: '#' },
   { title: 'Chat', href: '#' },
 ].map((item, index) => (

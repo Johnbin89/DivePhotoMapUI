@@ -2,11 +2,11 @@
 
 import { Anchor, Container, PaperProps, Stack } from '@mantine/core';
 import { InvoiceDetailsCard, PageHeader } from '@/components';
-import { PATH_DASHBOARD, PATH_INVOICES } from '@/routes';
+import { PATH_MAP, PATH_INVOICES } from '@/routes';
 import { Metadata } from 'next';
 
 const items = [
-  { title: 'Dashboard', href: PATH_DASHBOARD.default },
+  { title: 'Dashboard', href: PATH_MAP.public },
   { title: 'Apps', href: '#' },
   { title: 'Invoices', href: PATH_INVOICES.invoices.all },
   { title: 'Details', href: '#' },

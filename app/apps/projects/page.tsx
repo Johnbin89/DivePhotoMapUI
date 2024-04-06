@@ -8,12 +8,12 @@ import {
   Skeleton,
   Stack,
 } from '@mantine/core';
-import { PATH_DASHBOARD } from '@/routes';
+import { PATH_MAP } from '@/routes';
 import { ErrorAlert, PageHeader, ProjectsCard } from '@/components';
 import { useFetchData } from '@/hooks';
 
 const items = [
-  { title: 'Dashboard', href: PATH_DASHBOARD.default },
+  { title: 'Dashboard', href: PATH_MAP.public },
   { title: 'Apps', href: '#' },
   { title: 'Projects', href: '#' },
 ].map((item, index) => (

@@ -16,7 +16,7 @@ import {
   UnstyledButton,
   useMantineTheme,
 } from '@mantine/core';
-import { PATH_DASHBOARD } from '@/routes';
+import { PATH_MAP } from '@/routes';
 import {
   PageHeader,
   ProfileStatsCard,
@@ -42,7 +42,7 @@ import classes from './page.module.css';
 import { useFetchData } from '@/hooks';
 
 const items = [
-  { title: 'Dashboard', href: PATH_DASHBOARD.default },
+  { title: 'Dashboard', href: PATH_MAP.public },
   { title: 'Apps', href: '#' },
   { title: 'Profile', href: '#' },
 ].map((item, index) => (

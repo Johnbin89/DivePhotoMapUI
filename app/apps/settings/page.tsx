@@ -17,13 +17,13 @@ import {
   Text,
   TextInput,
 } from '@mantine/core';
-import { PATH_DASHBOARD } from '@/routes';
+import { PATH_MAP } from '@/routes';
 import { useForm } from '@mantine/form';
 import { IconCloudUpload, IconDeviceFloppy } from '@tabler/icons-react';
 import { PageHeader, Surface, TextEditor } from '@/components';
 
 const items = [
-  { title: 'Dashboard', href: PATH_DASHBOARD.default },
+  { title: 'Dashboard', href: PATH_MAP.public },
   { title: 'Apps', href: '#' },
   { title: 'Settings', href: '#' },
 ].map((item, index) => (

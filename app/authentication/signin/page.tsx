@@ -13,7 +13,7 @@ import {
   Title,
 } from '@mantine/core';
 import Link from 'next/link';
-import { PATH_AUTH, PATH_DASHBOARD } from '@/routes';
+import { PATH_AUTH, PATH_MAP } from '@/routes';
 import { Metadata } from 'next';
 import { Surface } from '@/components';
 import classes from './page.module.css';
@@ -64,7 +64,7 @@ function Page() {
           fullWidth
           mt="xl"
           component={Link}
-          href={PATH_DASHBOARD.default}
+          href={PATH_MAP.public}
         >
           Sign in
         </Button>

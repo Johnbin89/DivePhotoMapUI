@@ -8,12 +8,12 @@ import {
   Stack,
   Text,
 } from '@mantine/core';
-import { PATH_DASHBOARD } from '@/routes';
+import { PATH_MAP } from '@/routes';
 import { PageHeader, Surface } from '@/components';
 import { Metadata } from 'next';
 
 const items = [
-  { title: 'Dashboard', href: PATH_DASHBOARD.default },
+  { title: 'Dashboard', href: PATH_MAP.public },
   { title: 'Pages', href: '#' },
   { title: 'Blank', href: '#' },
 ].map((item, index) => (

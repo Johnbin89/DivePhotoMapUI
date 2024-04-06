@@ -13,7 +13,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import Link from 'next/link';
-import { PATH_AUTH, PATH_DASHBOARD } from '@/routes';
+import { PATH_AUTH, PATH_MAP } from '@/routes';
 import { useColorScheme, useMediaQuery } from '@mantine/hooks';
 import { Metadata } from 'next';
 import { Surface } from '@/components';
@@ -80,7 +80,7 @@ function Page() {
           fullWidth
           mt="xl"
           component={Link}
-          href={PATH_DASHBOARD.default}
+          href={PATH_MAP.public}
         >
           Create account
         </Button>

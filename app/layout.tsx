@@ -26,23 +26,23 @@ export default function RootLayout({
   return (
     <html lang="en" className={openSans.className}>
       <head>
-        <title>DesignSparx - Nextjs Mantine Admin Dashboard Template</title>
+        <title>Dive Photo Map</title>
         <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
+          rel="underwater_map-192"
+          sizes="191x182"
+          href="/underwater_map-192.png"
         />
         <link
           rel="icon"
           type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
+          sizes="32x31"
+          href="/underwater_map-32.png"
         />
         <link
           rel="icon"
           type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
+          sizes="16x15"
+          href="/underwater_map-16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
         <meta
@@ -51,7 +51,7 @@ export default function RootLayout({
         />
         <meta
           name="description"
-          content="Explore our versatile dashboard website template featuring a stunning array of themes and meticulously crafted components. Elevate your web project with seamless integration, customizable themes, and a rich variety of components for a dynamic user experience. Effortlessly bring your data to life with our intuitive dashboard template, designed to streamline development and captivate users. Discover endless possibilities in design and functionality today!"
+          content="Upload underwater photos, pin them on the map. See weekly scheduled dives on the map. Diving calc tools"
         />
 
         <script

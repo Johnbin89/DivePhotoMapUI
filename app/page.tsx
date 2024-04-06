@@ -28,7 +28,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import Link from 'next/link';
-import { PATH_APPS, PATH_DASHBOARD, PATH_DOCS, PATH_GITHUB } from '@/routes';
+import { PATH_APPS, PATH_MAP, PATH_DOCS, PATH_GITHUB } from '@/routes';
 import {
   IconAdjustmentsHorizontal,
   IconApps,
@@ -146,22 +146,22 @@ const DASHBOARDS = [
   {
     img: '/showcase/dashboard-default.png',
     title: 'default',
-    link: PATH_DASHBOARD.default,
+    link: PATH_MAP.public,
   },
   {
     img: '/showcase/dashboard-analytics.png',
     title: 'analytics',
-    link: PATH_DASHBOARD.analytics,
+    link: PATH_MAP.private,
   },
   {
     img: '/showcase/dashboard-saas.png',
     title: 'saas',
-    link: PATH_DASHBOARD.saas,
+    link: PATH_MAP.weekdives,
   },
   {
     img: '/showcase/dashboard-default-dark.png',
     title: 'dark mode',
-    link: PATH_DASHBOARD.default,
+    link: PATH_MAP.public,
   },
 ];
 
@@ -270,7 +270,7 @@ export default function Home() {
           content="Explore our versatile dashboard website template featuring a stunning array of themes and meticulously crafted components. Elevate your web project with seamless integration, customizable themes, and a rich variety of components for a dynamic user experience. Effortlessly bring your data to life with our intuitive dashboard template, designed to streamline development and captivate users. Discover endless possibilities in design and functionality today!"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/underwater_map-32.png" />
       </>
       <GuestLayout>
         <Box className={classes.hero}>
@@ -297,7 +297,7 @@ export default function Home() {
                 <Group my="lg">
                   <Button
                     component={Link}
-                    href={PATH_DASHBOARD.default}
+                    href={PATH_MAP.public}
                     size="md"
                     leftSection={<IconPlayerPlay size={18} />}
                   >

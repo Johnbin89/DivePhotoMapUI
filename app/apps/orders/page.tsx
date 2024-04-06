@@ -10,13 +10,13 @@ import {
   Stack,
   Text,
 } from '@mantine/core';
-import { PATH_DASHBOARD } from '@/routes';
+import { PATH_MAP } from '@/routes';
 import { OrdersTable, PageHeader } from '@/components';
 import { IconDotsVertical } from '@tabler/icons-react';
 import { useFetchData } from '@/hooks';
 
 const items = [
-  { title: 'Dashboard', href: PATH_DASHBOARD.default },
+  { title: 'Dashboard', href: PATH_MAP.public },
   { title: 'Apps', href: '#' },
   { title: 'Orders', href: '#' },
 ].map((item, index) => (

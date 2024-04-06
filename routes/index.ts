@@ -2,7 +2,7 @@ function path(root: string, sublink: string) {
   return `${root}${sublink}`;
 }
 
-const ROOTS_DASHBOARD = '/dashboard';
+const ROOTS_MAP= '/map';
 const ROOT_APPS = '/apps';
 const ROOTS_PAGES = '/pages';
 const ROOTS_PROJECTS = '/projects';
@@ -15,11 +15,11 @@ const ROOTS_ERRORS = '/error';
 const ROOTS_CHANGELOG = '/changelog';
 const ROOTS_AUTH_PROVIDERS = '/authProviders';
 
-export const PATH_DASHBOARD = {
-  root: ROOTS_DASHBOARD,
-  default: path(ROOTS_DASHBOARD, '/default'),
-  analytics: path(ROOTS_DASHBOARD, '/analytics'),
-  saas: path(ROOTS_DASHBOARD, '/saas'),
+export const PATH_MAP = {
+  root: ROOTS_MAP,
+  public: path(ROOTS_MAP, '/public'),
+  private: path(ROOTS_MAP, '/private'),
+  weekdives: path(ROOTS_MAP, '/weekdives'),
 };
 
 export const PATH_APPS = {

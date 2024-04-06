@@ -34,7 +34,7 @@ import { Logo, UserProfileButton } from '@/components';
 import {
   PATH_APPS,
   PATH_AUTH,
-  PATH_DASHBOARD,
+  PATH_MAP,
   PATH_DOCS,
   PATH_PAGES,
 } from '@/routes';
@@ -45,20 +45,38 @@ import { LinksGroup } from '@/components/Navigation/Links/Links';
 
 const mockdata = [
   {
-    title: 'Dashboard',
+    title: 'MAPS',
     links: [
-      { label: 'Default', icon: IconChartBar, link: PATH_DASHBOARD.default },
+      { label: 'Public', icon: IconChartBar, link: PATH_MAP.public },
       {
-        label: 'Analytics',
+        label: 'Private',
         icon: IconChartInfographic,
-        link: PATH_DASHBOARD.analytics,
+        link: PATH_MAP.private,
       },
-      { label: 'SaaS', icon: IconChartArcs3, link: PATH_DASHBOARD.saas },
+      { label: 'Week Dives', icon: IconChartArcs3, link: PATH_MAP.weekdives },
     ],
   },
   {
     title: 'Apps',
     links: [
+      {
+        label: 'Minimum Gas',
+        icon: IconFileInvoice,
+        links: [
+          {
+            label: 'Open Water',
+            link: PATH_APPS.invoices.all,
+          },
+          {
+            label: 'Wreck',
+            link: PATH_APPS.invoices.sample,
+          },
+          {
+            label: 'Cave',
+            link: PATH_APPS.invoices.sample,
+          },
+        ],
+      },
       { label: 'Profile', icon: IconUserCircle, link: PATH_APPS.profile },
       { label: 'Settings', icon: IconUserCode, link: PATH_APPS.settings },
       { label: 'Chat', icon: IconMessages, link: PATH_APPS.chat },

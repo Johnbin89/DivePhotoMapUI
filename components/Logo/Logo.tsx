@@ -22,12 +22,12 @@ const Logo = ({ href, ...others }: LogoProps) => {
     >
       <Group gap="xs">
         <Image
-          src="/logo-no-background.png"
+          src="/underwater_map-32.png"
           height={24}
           width={24}
           alt="design sparx logo"
         />
-        <Text fw={700}>Mantine admin</Text>
+        <Text fw={700}>Dive Photo Map</Text>
       </Group>
     </UnstyledButton>
   );

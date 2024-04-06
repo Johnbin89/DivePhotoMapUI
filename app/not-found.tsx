@@ -10,7 +10,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import Link from 'next/link';
-import { PATH_DASHBOARD } from '@/routes';
+import { PATH_MAP } from '@/routes';
 import { IconChevronLeft, IconHome2 } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
 import classes from './error.module.css';
@@ -61,7 +61,7 @@ function Error404() {
               variant="subtle"
               component={Link}
               leftSection={<IconHome2 size={18} />}
-              href={PATH_DASHBOARD.default}
+              href={PATH_MAP.public}
             >
               Take me to home page
             </Button>

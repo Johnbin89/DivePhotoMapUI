@@ -10,7 +10,7 @@ import {
   Stack,
   Text,
 } from '@mantine/core';
-import { PATH_DASHBOARD } from '@/routes';
+import { PATH_MAP } from '@/routes';
 import { InvoicesTable, PageHeader } from '@/components';
 import InvoicesData from '@/public/mocks/Invoices.json';
 import { IconDotsVertical } from '@tabler/icons-react';
@@ -18,7 +18,7 @@ import { Metadata } from 'next';
 import { useFetchData } from '@/hooks';
 
 const items = [
-  { title: 'Dashboard', href: PATH_DASHBOARD.default },
+  { title: 'Dashboard', href: PATH_MAP.public },
   { title: 'Apps', href: '#' },
   { title: 'Invoices', href: '#' },
 ].map((item, index) => (

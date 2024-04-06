@@ -3,12 +3,12 @@
 import { useEffect, useState } from 'react';
 import { Anchor, Container, PaperProps, Stack } from '@mantine/core';
 import { InvoiceDetailsCard, PageHeader } from '@/components';
-import { PATH_DASHBOARD, PATH_INVOICES } from '@/routes';
+import { PATH_MAP, PATH_INVOICES } from '@/routes';
 import { Invoices } from '@/types';
 import { useFetchData } from '@/hooks';
 
 const items = [
-  { title: 'Dashboard', href: PATH_DASHBOARD.default },
+  { title: 'Dashboard', href: PATH_MAP.public },
   { title: 'Invoices', href: PATH_INVOICES.invoices.all },
   { title: 'Details', href: '#' },
 ].map((item, index) => (

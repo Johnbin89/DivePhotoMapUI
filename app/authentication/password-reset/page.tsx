@@ -13,7 +13,7 @@ import {
 import { IconChevronLeft } from '@tabler/icons-react';
 import React from 'react';
 import Link from 'next/link';
-import { PATH_AUTH, PATH_DASHBOARD } from '@/routes';
+import { PATH_AUTH, PATH_MAP } from '@/routes';
 import { useMediaQuery } from '@mantine/hooks';
 import classes from './page.module.css';
 import { Surface } from '@/components';
@@ -61,7 +61,7 @@ function Page() {
           </UnstyledButton>
           <Button
             component={Link}
-            href={PATH_DASHBOARD.default}
+            href={PATH_MAP.public}
             fullWidth={mobile_match}
           >
             Reset password
