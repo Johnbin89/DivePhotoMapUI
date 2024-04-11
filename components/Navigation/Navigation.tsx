@@ -14,6 +14,9 @@ import {
   IconCalendar,
   IconChartArcs3,
   IconChartBar,
+  IconMapSearch,
+  IconMap2,
+  IconMapPins,
   IconChartInfographic,
   IconFileInvoice,
   IconLayersSubtract,
@@ -47,13 +50,13 @@ const mockdata = [
   {
     title: 'MAPS',
     links: [
-      { label: 'Public', icon: IconChartBar, link: PATH_MAP.public },
+      { label: 'Global', icon: IconMapSearch, link: PATH_MAP.global },
       {
         label: 'Private',
-        icon: IconChartInfographic,
+        icon: IconMap2,
         link: PATH_MAP.private,
       },
-      { label: 'Week Dives', icon: IconChartArcs3, link: PATH_MAP.weekdives },
+      { label: 'Week Dives', icon: IconMapPins, link: PATH_MAP.weekdives },
     ],
   },
   {

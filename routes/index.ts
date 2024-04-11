@@ -20,6 +20,7 @@ export const PATH_MAP = {
   public: path(ROOTS_MAP, '/public'),
   private: path(ROOTS_MAP, '/private'),
   weekdives: path(ROOTS_MAP, '/weekdives'),
+  global: path(ROOTS_MAP, '/global'),
 };
 
 export const PATH_APPS = {
