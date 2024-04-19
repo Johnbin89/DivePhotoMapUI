@@ -33,7 +33,7 @@ const PAPER_PROPS: PaperProps = {
   radius: 'md',
 };
 
-const position: LatLngExpression = [51.505, -0.09]
+const position: LatLngExpression = [37.75928 	, 24.07465]
 
 function Weekdives() {
   const mapRef = useRef(null);

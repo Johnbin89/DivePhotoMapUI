@@ -1,6 +1,7 @@
 import { MutableRefObject, ReactNode } from 'react';
 import { Box } from '@mantine/core';
-import classes from './Map.module.css'; import { MapContainer, TileLayer, useMap, Marker, Popup, } from 'react-leaflet'
+import classes from './Map.module.css'; 
+import { MapContainer, TileLayer, useMap, Marker, Popup, } from 'react-leaflet'
 import { LatLngExpression } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import Leaflet from 'leaflet';
@@ -15,7 +16,7 @@ type MapMainProps = {
 const MapMain = ({ children, centerposition, mapRef }: MapMainProps) => {
   return (
     <Box py="lg" px="md" className={classes.main}>
-      <MapContainer center={centerposition} zoom={13} scrollWheelZoom={false} style={{ height: "100%", zIndex: 0 }} ref={mapRef}>
+      <MapContainer center={centerposition} zoom={11} scrollWheelZoom={true} style={{ height: "100%", zIndex: 0 }} ref={mapRef}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
