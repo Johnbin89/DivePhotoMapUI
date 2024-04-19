@@ -7,6 +7,7 @@ import AppMain from '@/components/AppMain';
 import Navigation from '@/components/Navigation';
 import HeaderNav from '@/components/HeaderNav';
 import FooterNav from '@/components/FooterNav';
+import MapMain from '@/components/MapMain';
 
 type Props = {
   children: ReactNode;
@@ -25,7 +26,6 @@ function CalendarLayout({ children }: Props) {
     <AppShell
       layout="alt"
       header={{ height: 60 }}
-      footer={{ height: 60 }}
       navbar={{
         width: 300,
         breakpoint: 'md',
@@ -55,13 +55,8 @@ function CalendarLayout({ children }: Props) {
         <Navigation onClose={() => setOpened(false)} />
       </AppShell.Navbar>
       <AppShell.Main>
-        <AppMain>{children}</AppMain>
+        {children}
       </AppShell.Main>
-      <AppShell.Footer p="md">
-        <Container fluid px="lg">
-          <FooterNav />
-        </Container>
-      </AppShell.Footer>
     </AppShell>
   );
 }
