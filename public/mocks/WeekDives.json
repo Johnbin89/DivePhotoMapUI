@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fe2c25c6-2cbc-4c73-9edc-8477af0000a8",
+    "title": "Profitis Ilias",
+    "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
+    "status": "active",
+    "maxDivers": 8,
+    "cost": 50,
+    "link": null,
+    "newsletterLink": 86
+  },
+  {
+    "id": "e8e90591-b278-4980-943c-b98e7b919712",
+    "title": "Kakia Thalassa",
+    "description": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.\n\nMorbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.\n\nFusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.\n\nSed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+    "status": "active",
+    "maxDivers": 6,
+    "cost": 65,
+    "link": null,
+    "newsletterLink": null
+  }
+]
