@@ -5,6 +5,8 @@ import { MapContainer, TileLayer, useMap, Marker, Popup, } from 'react-leaflet'
 import { LatLngExpression } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import Leaflet from 'leaflet';
+import { FullscreenControl } from "react-leaflet-fullscreen";
+import "react-leaflet-fullscreen/styles.css";
 Leaflet.Icon.Default.imagePath = 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/'
 
 type MapMainProps = {
@@ -21,6 +23,7 @@ const MapMain = ({ children, centerposition, mapRef }: MapMainProps) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <FullscreenControl/>
         {children}
       </MapContainer>
     </Box>
