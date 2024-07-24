@@ -22,18 +22,15 @@ function Page() {
   const LINK_PROPS: TextProps = {
     className: classes.link,
   };
-
   return (
     <>
       <>
-        <title>Sign in | DesignSparx</title>
+        <title>Sign in | DiveMap</title>
         <meta
           name="description"
-          content="Explore our versatile dashboard website template featuring a stunning array of themes and meticulously crafted components. Elevate your web project with seamless integration, customizable themes, and a rich variety of components for a dynamic user experience. Effortlessly bring your data to life with our intuitive dashboard template, designed to streamline development and captivate users. Discover endless possibilities in design and functionality today!"
+          content="Sign In to Divemap"
         />
       </>
-      <Title ta="center">Welcome back!</Title>
-      <Text ta="center">Sign in to your account to continue</Text>
 
       <Surface component={Paper} className={classes.card}>
         <TextInput
