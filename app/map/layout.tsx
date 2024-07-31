@@ -7,7 +7,6 @@ import AppMain from '@/components/AppMain';
 import Navigation from '@/components/Navigation';
 import HeaderNav from '@/components/HeaderNav';
 import FooterNav from '@/components/FooterNav';
-import MapMain from '@/components/MapMain';
 
 type Props = {
   children: ReactNode;

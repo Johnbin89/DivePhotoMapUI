@@ -1,5 +1,5 @@
-import { MutableRefObject, ReactNode } from 'react';
-import { Box } from '@mantine/core';
+import { MutableRefObject, ReactNode, useEffect, useRef } from 'react';
+import { Box, Container } from '@mantine/core';
 import classes from './Map.module.css'; 
 import { MapContainer, TileLayer, useMap, Marker, Popup, } from 'react-leaflet'
 import { LatLngExpression } from 'leaflet';
@@ -15,19 +15,51 @@ type MapMainProps = {
   mapRef: MutableRefObject<any>;
 };
 
+type MapRefProps = {
+  mapRef: MutableRefObject<any>;
+};
+
+const MapRef = ({mapRef}: MapRefProps) => {
+  const map = useMap();
+  useEffect(() => {
+    if (map) {
+      mapRef.current = map;
+    }
+    return () => {
+      mapRef.current = null;
+    };
+  }, [map]);
+
+  return null;
+};
+
+const resizeMap = (mapRef: MutableRefObject<any>) => {
+  const resizeObserver = new ResizeObserver(() => mapRef.current?.invalidateSize())
+  const container = document.getElementById('map-container')
+  if (container) {
+    resizeObserver.observe(container)
+  }
+}
+
+
 const MapMain = ({ children, centerposition, mapRef }: MapMainProps) => {
+
+
+
   return (
-    <Box py="lg" px="md" className={classes.main}>
-      <MapContainer center={centerposition} zoom={11} scrollWheelZoom={true} style={{ height: "100%", zIndex: 0 }} ref={mapRef}>
+    <Container fluid py="lg" px="md" className={classes.main} style={{ overflow: 'hidden' }}>
+      <MapContainer center={centerposition} zoom={11} scrollWheelZoom={true} style={{ height: "100%", zIndex: 0 }} id="map-container"
+      whenReady={() => resizeMap(mapRef)}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <FullscreenControl/>
+        <MapRef mapRef={mapRef}/>
         {children}
       </MapContainer>
-    </Box>
-  );
+    </Container>
+  ); 
 };
 
 export default MapMain;

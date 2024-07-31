@@ -1,14 +1,12 @@
-import { ReactNode } from 'react';
-import {
-  AppShell,
-  Box,
-  ColorSchemeScript,
-  MantineProvider,
-  useMantineTheme,
-} from '@mantine/core';
-import HeaderNav from '@/layout/Guest/HeaderNav/HeaderNav';
-import FooterNav from '@/layout/Guest/FooterNav/FooterNav';
-import { useHeadroom } from '@mantine/hooks';
+'use client'
+
+import { AppShell, Container, rem, useMantineTheme } from '@mantine/core';
+import { ReactNode, useState } from 'react';
+import { useDisclosure, useMediaQuery } from '@mantine/hooks';
+import AppMain from '@/components/AppMain';
+import Navigation from '@/components/Navigation';
+import HeaderNav from '@/components/HeaderNav';
+import FooterNav from '@/components/FooterNav';
 
 type GuestLayoutProps = {
   children: ReactNode;
@@ -16,22 +14,49 @@ type GuestLayoutProps = {
 
 function GuestLayout({ children }: GuestLayoutProps) {
   const theme = useMantineTheme();
-  const pinned = useHeadroom({ fixedAt: 120 });
+  const [opened, setOpened] = useState(false);
+  const [themeOpened, { open: themeOpen, close: themeClose }] =
+    useDisclosure(false);
+  const tablet_match = useMediaQuery('(max-width: 768px)');
+  const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
+  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
   return (
-    <>
-      <AppShell header={{ height: 60, collapsed: !pinned, offset: false }}>
-        <AppShell.Header>
-          <HeaderNav />
-        </AppShell.Header>
-        <AppShell.Main>
-          <Box style={{ backgroundColor: theme.colors.gray[0] }}>
-            {children}
-          </Box>
-          <FooterNav />
-        </AppShell.Main>
-      </AppShell>
-    </>
+    <AppShell
+      layout="alt"
+      header={{ height: 60 }}
+      navbar={{
+        width: 300,
+        breakpoint: 'md',
+        collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
+      }}
+      padding={0}
+    >
+      <AppShell.Header
+        style={{
+          height: rem(60),
+          border: 'none',
+          boxShadow: tablet_match ? theme.shadows.md : theme.shadows.sm,
+        }}
+      >
+        <Container fluid py="sm" px="lg">
+          <HeaderNav
+            opened={opened}
+            handleOpen={() => setOpened((o) => !o)}
+            desktopOpened={desktopOpened}
+            mobileOpened={mobileOpened}
+            toggleDesktop={toggleDesktop}
+            toggleMobile={toggleMobile}
+          />
+        </Container>
+      </AppShell.Header>
+      <AppShell.Navbar>
+        <Navigation onClose={() => setOpened(false)} />
+      </AppShell.Navbar>
+      <AppShell.Main>
+        {children}
+      </AppShell.Main>
+    </AppShell>
   );
 }
 
