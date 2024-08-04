@@ -7,6 +7,7 @@ import "leaflet/dist/leaflet.css";
 import Leaflet from 'leaflet';
 import { FullscreenControl } from "react-leaflet-fullscreen";
 import "react-leaflet-fullscreen/styles.css";
+import "@changey/react-leaflet-markercluster/dist/styles.min.css"
 Leaflet.Icon.Default.imagePath = 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/'
 
 type MapMainProps = {

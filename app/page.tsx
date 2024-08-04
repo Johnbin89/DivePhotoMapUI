@@ -22,8 +22,7 @@ import { useFetchData } from '@/hooks';
 import DiveCard from '@/components/DiveCard/DiveCard';
 import styled from '@emotion/styled';
 import GuestLayout from '@/layout/Guest';
-import classes from './page.module.css'
-
+import MarkerClusterGroup from '@changey/react-leaflet-markercluster';
 
 const items = [
   { title: 'Dashboard', href: PATH_MAP.public },
@@ -47,7 +46,9 @@ const CARD_PROPS: Omit<CardProps, 'children'> = {
   radius: 'md',
 };
 
-const position: LatLngExpression = [37.75928 	, 24.07465]
+const profIliasPosition: LatLngExpression = [37.75928, 24.07465]
+const patrisPosition: LatLngExpression = [37.58178, 24.26677]
+const mockMarkers = [profIliasPosition, patrisPosition]
 
 function HomePage() {
   const mapRef = useRef(null);
@@ -70,28 +71,36 @@ function HomePage() {
 
   return (
     <GuestLayout>
-      <MapMain centerposition={position} mapRef={mapRef}>
-        <Marker position={position}>
-          <Popup minWidth={190}>
-          <style jsx global>{`
+      <MapMain centerposition={profIliasPosition} mapRef={mapRef}>
+        <MarkerClusterGroup>
+          {mockMarkers.map((address, index) => (
+            <Marker
+              key={index}
+              position={[address[0], address[1]]}
+            >
+              <Popup minWidth={190}>
+                <style jsx global>{`
         .leaflet-popup-content-wrapper, & .leaflet-popup-tip {
           background: ${colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1]};
         }
       `}</style>
-            <DiveCard
-              id={'1'}
-              title={'Profitis Ilias'}
-              description={'Lets Dive!'}
-              status={'active'}
-              cost={65}
-              maxDivers={8}
-              link={'#href'}
-              newsletterLink={'#href'}>
-              </DiveCard> 
-          </Popup>
-        </Marker>
+                <DiveCard
+                  id={index.toString()}
+                  title={'Profitis Ilias'}
+                  description={'Lets Dive!'}
+                  status={'active'}
+                  cost={65}
+                  maxDivers={8}
+                  link={'#href'}
+                  newsletterLink={'#href'}>
+                </DiveCard>
+              </Popup>
+
+            </Marker>
+          ))}
+        </MarkerClusterGroup>
       </MapMain>
-      </GuestLayout>
+    </GuestLayout>
   );
 }
 
