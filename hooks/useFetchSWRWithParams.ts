@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import useSWR from "swr";
 import {Url} from "next/dist/shared/lib/router/router";
 
-const useFetchSWRWithParams = (url, args) => {
+const useFetchSWRWithParams = (url: string, args) => {
 
-    const fetcher = async (url, args) => {
+    const fetcher = async (url: string, args) => {
         function objToQueryString(obj) {
             const keyValuePairs = [];
             for (const key in obj) {

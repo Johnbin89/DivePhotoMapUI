@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: true,
   //https://nextjs.org/docs/pages/api-reference/next-config-js/rewrites
   async rewrites() {
     return {
@@ -25,8 +26,8 @@ const nextConfig = {
         // These rewrites are checked after both pages/public files
         // and dynamic routes are checked
         {
-          source: '/dj/:path*',
-          destination: `http://localhost:8001/:path*`,
+          source: '/dj/:path*/',
+          destination: 'http://127.0.0.1:8001/:path*/?format=json',
         },
       ],
     }

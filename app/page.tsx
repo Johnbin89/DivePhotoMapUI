@@ -17,8 +17,8 @@ import { Metadata } from 'next';
 import { useMap, Marker, Popup, } from 'react-leaflet'
 import { LatLngExpression } from 'leaflet';
 import MapMain from '@/components/MapMain';
-import { useEffect, useRef } from 'react';
-import { useFetchData } from '@/hooks';
+import { useEffect, useRef, useState } from 'react';
+import { useFetchData, useFetchSWR } from '@/hooks';
 import DiveCard from '@/components/DiveCard/DiveCard';
 import styled from '@emotion/styled';
 import GuestLayout from '@/layout/Guest';
@@ -54,29 +54,29 @@ function HomePage() {
   const mapRef = useRef(null);
   const theme = useMantineTheme();
   const { colorScheme } = useMantineColorScheme();
+  const [markers, setMarkers] = useState(Array<any>)
   const PopupStyle = styled(Popup)(() => ({
     "& .leaflet-popup-content-wrapper, & .leaflet-popup-tip": {
       background: colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
     },
   }));
-  const {
-    data: divesData,
-    loading: divesLoading,
-    error: divesError,
-  } = useFetchData('/mocks/WeekDives.json');
-  const divesItems = divesData.map((p: any) => (
-    <DiveCard key={p.id} {...p} {...CARD_PROPS} />
-  ));
+
+    const { data: markersData, error: markersError } = useFetchSWR('dj/markers/public/')
+    useEffect(() => { 
+      if(markersData) {   
+        setMarkers(markersData) 
+
+      } }, [markersData]);
 
 
   return (
     <GuestLayout>
       <MapMain centerposition={profIliasPosition} mapRef={mapRef}>
         <MarkerClusterGroup>
-          {mockMarkers.map((address, index) => (
+          {markers.map((address, index) => (
             <Marker
               key={index}
-              position={[address[0], address[1]]}
+              position={[address.posLat, address.posLng]}
             >
               <Popup minWidth={190}>
                 <style jsx global>{`

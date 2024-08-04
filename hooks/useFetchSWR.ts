@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import useSWR from "swr";
 
-const useFetchSWR = (url) => {
+const useFetchSWR = (url: string) => {
 
-    const fetcher = async (url) => {
+    const fetcher = async (url: string) => {
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error('An error occurred while fetching the data.');
