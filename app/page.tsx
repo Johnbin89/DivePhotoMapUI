@@ -61,22 +61,18 @@ function HomePage() {
     },
   }));
 
-    const { data: markersData, error: markersError } = useFetchSWR('dj/markers/public/')
-    useEffect(() => { 
-      if(markersData) {   
-        setMarkers(markersData) 
+  const { data: markersData, error: markersError } = useFetchSWR('dj/markers/public/')
 
-      } }, [markersData]);
 
 
   return (
     <GuestLayout>
       <MapMain centerposition={profIliasPosition} mapRef={mapRef}>
         <MarkerClusterGroup>
-          {markers.map((address, index) => (
+          {markersData?.map((marker, index) => (
             <Marker
               key={index}
-              position={[address.posLat, address.posLng]}
+              position={[marker.posLat, marker.posLng]}
             >
               <Popup minWidth={190}>
                 <style jsx global>{`
@@ -86,8 +82,8 @@ function HomePage() {
       `}</style>
                 <DiveCard
                   id={index.toString()}
-                  title={'Profitis Ilias'}
-                  description={'Lets Dive!'}
+                  title={marker.divespot.name}
+                  description={marker.divespot.description}
                   status={'active'}
                   cost={65}
                   maxDivers={8}
