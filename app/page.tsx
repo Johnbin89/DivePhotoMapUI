@@ -17,7 +17,7 @@ import { Metadata } from 'next';
 import { useMap, Marker, Popup, } from 'react-leaflet'
 import { LatLngExpression } from 'leaflet';
 import MapMain from '@/components/MapMain';
-import { useEffect, useRef, useState } from 'react';
+import { Key, useEffect, useRef, useState } from 'react';
 import { useFetchData, useFetchSWR } from '@/hooks';
 import DiveCard from '@/components/DiveCard/DiveCard';
 import styled from '@emotion/styled';
@@ -88,8 +88,8 @@ function HomePage() {
                   cost={65}
                   maxDivers={8}
                   link={'#href'}
-                  newsletterLink={'#href'}>
-                </DiveCard>
+                  newsletterLink={'#href'}
+                />
               </Popup>
 
             </Marker>

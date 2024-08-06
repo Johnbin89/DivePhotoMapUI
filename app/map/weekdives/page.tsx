@@ -89,8 +89,8 @@ function Weekdives() {
               cost={65}
               maxDivers={8}
               link={'#href'}
-              newsletterLink={'#href'}>
-              </DiveCard> 
+              newsletterLink={'#href'}
+            /> 
           </Popup>
         </Marker>
       </MapMain>
