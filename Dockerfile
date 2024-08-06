@@ -1,4 +1,6 @@
 FROM node:18-alpine AS base
+ARG NEXT_PUBLIC_DJ_URL
+ENV NEXT_PUBLIC_DJ_URL=$NEXT_PUBLIC_DJ_URL
 
 # Install dependencies only when needed
 FROM base AS deps
