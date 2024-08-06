@@ -18,7 +18,7 @@ function SignUpLayout({ children }: AuthProps) {
       <WaterWave
         style={{ width: '100%', height: '100%', backgroundSize: 'cover' }}
       >
-        {methods => (
+        {(methods: any) => (
           <Center
             style={{
               height: '100vh',
