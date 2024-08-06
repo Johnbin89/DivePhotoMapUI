@@ -69,7 +69,7 @@ function HomePage() {
     <GuestLayout>
       <MapMain centerposition={profIliasPosition} mapRef={mapRef}>
         <MarkerClusterGroup>
-          {markersData?.map((marker, index) => (
+          {markersData?.map((marker:any , index: Key) => (
             <Marker
               key={index}
               position={[marker.posLat, marker.posLng]}

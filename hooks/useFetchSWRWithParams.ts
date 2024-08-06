@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import useSWR from "swr";
 import {Url} from "next/dist/shared/lib/router/router";
 
-const useFetchSWRWithParams = (url: string, args) => {
+const useFetchSWRWithParams = (url: string, args: any) => {
 
-    const fetcher = async (url: string, args) => {
-        function objToQueryString(obj) {
+    const fetcher = async (url: string, args: any) => {
+        function objToQueryString(obj: { [x: string]: string | number | boolean; }) {
             const keyValuePairs = [];
             for (const key in obj) {
                 keyValuePairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]));
