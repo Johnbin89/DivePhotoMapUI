@@ -27,7 +27,7 @@ const nextConfig = {
         // and dynamic routes are checked
         {
           source: '/dj/:path*/',
-          destination: 'http://127.0.0.1:8001/:path*/?format=json',
+          destination: process.env.NEXT_PUBLIC_DJ_URL,
         },
       ],
     }
