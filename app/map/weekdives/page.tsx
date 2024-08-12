@@ -14,12 +14,11 @@ import {
 import { PATH_MAP } from '@/routes';
 import { PageHeader, Surface } from '@/components';
 import { Metadata } from 'next';
-import { useMap, Marker, Popup, } from 'react-leaflet'
 import { LatLngExpression } from 'leaflet';
-import MapMain from '@/components/MapMain';
+import {LazyPopup, LazyMarker, LazyMap, LazyMarkerCluster} from '@/components/LazyLeaflet/LazyPopup';
+import LazyDiveCard from '@/components/DiveCard/LazyDiveCard'
 import { useRef } from 'react';
 import { useFetchData } from '@/hooks';
-import DiveCard from '@/components/DiveCard/DiveCard';
 import styled from '@emotion/styled';
 
 
@@ -51,7 +50,7 @@ function Weekdives() {
   const mapRef = useRef(null);
   const theme = useMantineTheme();
   const { colorScheme } = useMantineColorScheme();
-  const PopupStyle = styled(Popup)(() => ({
+  const PopupStyle = styled(LazyPopup)(() => ({
     "& .leaflet-popup-content-wrapper, & .leaflet-popup-tip": {
       background: colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
     },
@@ -62,7 +61,7 @@ function Weekdives() {
     error: divesError,
   } = useFetchData('/mocks/WeekDives.json');
   const divesItems = divesData.map((p: any) => (
-    <DiveCard key={p.id} {...p} {...CARD_PROPS} />
+    <LazyDiveCard key={p.id} {...p} {...CARD_PROPS} />
   ));
   return (
     <>
@@ -73,15 +72,15 @@ function Weekdives() {
           content="Weekly dives from dive centers newsletters."
         />
       </>
-      <MapMain centerposition={position} mapRef={mapRef}>
-        <Marker position={position}>
-          <Popup minWidth={190}>
+      <LazyMap centerposition={position} mapRef={mapRef}>
+        <LazyMarker position={position}>
+          <LazyPopup minWidth={190}>
           <style jsx global>{`
         .leaflet-popup-content-wrapper, & .leaflet-popup-tip {
           background: ${colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1]};
         }
       `}</style>
-            <DiveCard
+            <LazyDiveCard
               id={'1'}
               title={'Profitis Ilias'}
               description={'Lets Dive!'}
@@ -91,9 +90,9 @@ function Weekdives() {
               link={'#href'}
               newsletterLink={'#href'}
             /> 
-          </Popup>
-        </Marker>
-      </MapMain>
+          </LazyPopup>
+        </LazyMarker>
+      </LazyMap>
 
     </>
   );

@@ -1,10 +1,12 @@
 import wretch, { Wretch, WretchError } from "wretch";
 import { AuthActions } from "@/app/lib/auth";
+import { useRouter } from 'next/navigation';
 
 // Extract necessary functions from the AuthActions utility.
 const { handleJWTRefresh, storeToken, getToken } = AuthActions();
 
 const api = () => {
+  const router = useRouter()
   return (
     wretch("/dj")
       // Initialize authentication with the access token.
@@ -25,11 +27,11 @@ const api = () => {
             .auth(`Bearer ${access}`)
             .fetch()
             .unauthorized(() => {
-              window.location.replace("/");
+              router.replace('/')
             })
             .json();
         } catch (err) {
-          window.location.replace("/");
+          router.replace('/');
         }
       })
   );

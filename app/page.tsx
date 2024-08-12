@@ -14,15 +14,15 @@ import {
 import { PATH_MAP } from '@/routes';
 import { PageHeader, Surface } from '@/components';
 import { Metadata } from 'next';
-import { useMap, Marker, Popup, } from 'react-leaflet'
 import { LatLngExpression } from 'leaflet';
-import MapMain from '@/components/MapMain';
-import { Key, useEffect, useRef, useState } from 'react';
+import { FC, Key, ReactNode, Suspense, useEffect, useRef, useState } from 'react';
 import { useFetchData, useFetchSWR } from '@/hooks';
-import DiveCard from '@/components/DiveCard/DiveCard';
+import {LazyPopup, LazyMarker, LazyMap, LazyMarkerCluster} from '@/components/LazyLeaflet/LazyPopup';
+import LazyDiveCard from '@/components/DiveCard/LazyDiveCard'
 import styled from '@emotion/styled';
 import GuestLayout from '@/layout/Guest';
-import MarkerClusterGroup from '@changey/react-leaflet-markercluster';
+import { useMounted } from '@mantine/hooks';
+import Loading from './loading';
 
 const items = [
   { title: 'Dashboard', href: PATH_MAP.public },
@@ -47,15 +47,15 @@ const CARD_PROPS: Omit<CardProps, 'children'> = {
 };
 
 const profIliasPosition: LatLngExpression = [37.75928, 24.07465]
-const patrisPosition: LatLngExpression = [37.58178, 24.26677]
-const mockMarkers = [profIliasPosition, patrisPosition]
+
 
 function HomePage() {
+  const mounted = useMounted();
   const mapRef = useRef(null);
   const theme = useMantineTheme();
   const { colorScheme } = useMantineColorScheme();
   const [markers, setMarkers] = useState(Array<any>)
-  const PopupStyle = styled(Popup)(() => ({
+  const PopupStyle = styled(LazyPopup)(() => ({
     "& .leaflet-popup-content-wrapper, & .leaflet-popup-tip": {
       background: colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
     },
@@ -64,23 +64,23 @@ function HomePage() {
   const { data: markersData, error: markersError } = useFetchSWR('dj/markers/public/')
 
 
-
   return (
+    <Suspense key={mounted ? "client" : "server"} fallback={<Loading/>}>
     <GuestLayout>
-      <MapMain centerposition={profIliasPosition} mapRef={mapRef}>
-        <MarkerClusterGroup>
+      <LazyMap centerposition={profIliasPosition} mapRef={mapRef}>
+        <LazyMarkerCluster>
           {markersData?.map((marker:any , index: Key) => (
-            <Marker
+            <LazyMarker
               key={index}
               position={[marker.posLat, marker.posLng]}
             >
-              <Popup minWidth={190}>
+              <LazyPopup minWidth={190}>
                 <style jsx global>{`
         .leaflet-popup-content-wrapper, & .leaflet-popup-tip {
           background: ${colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1]};
         }
       `}</style>
-                <DiveCard
+                <LazyDiveCard
                   id={index.toString()}
                   title={marker.divespot.name}
                   description={marker.divespot.description}
@@ -90,13 +90,14 @@ function HomePage() {
                   link={'#href'}
                   newsletterLink={'#href'}
                 />
-              </Popup>
+              </LazyPopup>
 
-            </Marker>
+            </LazyMarker>
           ))}
-        </MarkerClusterGroup>
-      </MapMain>
+        </LazyMarkerCluster>
+      </LazyMap>
     </GuestLayout>
+    </Suspense>
   );
 }
 
