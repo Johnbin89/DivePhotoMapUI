@@ -3,7 +3,6 @@
 import { BackgroundImage, Center, Stack } from '@mantine/core';
 import Image from 'next/image';
 import React, { ReactNode } from 'react';
-import WaterWave from 'react-water-wave';
 
 type AuthProps = {
   children: ReactNode;
@@ -15,10 +14,6 @@ function SignUpLayout({ children }: AuthProps) {
       src="/sign-up-bg.png"
       radius="sm"
     >
-      <WaterWave
-        style={{ width: '100%', height: '100%', backgroundSize: 'cover' }}
-      >
-        {(methods: any) => (
           <Center
             style={{
               height: '100vh',
@@ -38,8 +33,6 @@ function SignUpLayout({ children }: AuthProps) {
               {children}
             </Stack>
           </Center>
-        )}
-      </WaterWave>
     </BackgroundImage>
   );
 }
