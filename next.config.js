@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
+  output: 'standalone',
   //https://nextjs.org/docs/pages/api-reference/next-config-js/rewrites
   async rewrites() {
     return {
