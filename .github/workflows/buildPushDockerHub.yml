@@ -24,10 +24,13 @@ jobs:
           build-args: |
             NEXT_PUBLIC_DJ_URL=${{ secrets.NEXT_PUBLIC_DJ_URL }}
             
-      - name: Trigger Jenkins Job
-        uses: sbitio/trigger-jenkins-job@master
+      - name: triggerjenkinsjob
+        uses: mickeygoussetorg/trigger-jenkins-job@v1
         with:
-          JENKINS_USER: ${{ secrets.JENKINS_USER }}
-          JENKINS_TOKEN: ${{ secrets.JENKINS_TOKEN }}
-          JENKINS_HOST: ${{ secrets.JENKINS_HOST }}
-          JENKINS_JOB: ${{ secrets.JENKINS_JOB }}
+          jenkins-server:  "${{ secrets.JENKINS_HOST }}" # URL of the jenkins server. ex: http://myjenkins.acme.com:8080
+          jenkins-job: "DivePhotoMapUI" # The name of the jenkins job to run
+          jenkins-username: ${{ secrets.JENKINS_USER }} # user name for accessing jenkins
+          jenkins-pat: ${{ secrets.JENKINS_TOKEN }} # personal Access token for accessing Jenkins
+          poll-time: 10 # how often (seconds) to poll the jenkins server for results
+          timeout-value: 600 # How long (seconds) to poll before timing out the action
+          verbose: true # true/false - turns on extra logging
