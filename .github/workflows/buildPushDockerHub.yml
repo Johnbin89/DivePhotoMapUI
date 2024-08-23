@@ -21,3 +21,4 @@ jobs:
           context: ./
           push: true
           tags: johnbin89/divephotomapui:latest
+          build-args: ${{secrets.NEXT_PUBLIC_DJ_URL}}
