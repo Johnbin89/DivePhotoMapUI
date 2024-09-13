@@ -91,8 +91,8 @@ type DiveCardProps = {
   title: string;
   description: string;
   status: Status;
-  maxDivers: number;
-  cost: number;
+  dive_type: number;
+  access_type: number;
   link: string,
   newsletterLink: string
 } & Omit<PaperProps, 'children'>;
@@ -100,7 +100,7 @@ type DiveCardProps = {
 const DiveCard = (props: DiveCardProps) => {
   const { colorScheme } = useMantineColorScheme();
   const theme = useMantineTheme();
-  const { id, title, description, status, maxDivers, cost, link, newsletterLink, ...others } =
+  const { id, title, description, status, dive_type, access_type, link, newsletterLink, ...others } =
     props;
 
   return (
@@ -125,15 +125,15 @@ const DiveCard = (props: DiveCardProps) => {
         <Divider />
         <SimpleGrid cols={2} spacing="xs" verticalSpacing="xs">
         <Text className={classes.tasksCompleted}>
-          Divers:{' '}
+          Type:{' '}
           <Text span  fw={500} className={classes.tasksCompleted}>
-            {maxDivers}
+            {dive_type}
           </Text>
         </Text>
         <Text className={classes.tasksCompleted}>
-          Cost:{' '}
+          Access:{' '}
           <Text span  fw={500} className={classes.tasksCompleted}>
-            {cost}
+            {access_type}
           </Text>
         </Text>
     </SimpleGrid>
