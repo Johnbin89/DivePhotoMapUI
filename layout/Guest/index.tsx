@@ -19,7 +19,7 @@ function GuestLayout({ children }: GuestLayoutProps) {
     useDisclosure(false);
   const tablet_match = useMediaQuery('(max-width: 768px)');
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
-  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
+  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure();
 
   return (
     <AppShell
