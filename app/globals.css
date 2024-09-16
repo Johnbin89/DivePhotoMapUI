@@ -8,3 +8,8 @@
   background-color: #1c9489 !important;
   color: #fff !important;
 }
+
+
+.marker-cluster-medium div {
+    color: black !important;
+}
