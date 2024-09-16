@@ -85,8 +85,8 @@ function HomePage() {
                   title={marker.divespot.name}
                   description={marker.divespot.description}
                   status={'active'}
-                  cost={65}
-                  maxDivers={8}
+                  dive_type={marker.divespot.dive_type}
+                  access_type={marker.divespot.access_type}
                   link={'#href'}
                   newsletterLink={'#href'}
                 />
