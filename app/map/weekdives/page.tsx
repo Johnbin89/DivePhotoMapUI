@@ -85,8 +85,8 @@ function Weekdives() {
               title={'Profitis Ilias'}
               description={'Lets Dive!'}
               status={'active'}
-              cost={65}
-              maxDivers={8}
+              dive_type={'Open Water'}
+              access_type={'On Foot'}
               link={'#href'}
               newsletterLink={'#href'}
             /> 

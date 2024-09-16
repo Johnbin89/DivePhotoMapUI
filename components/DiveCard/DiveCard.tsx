@@ -91,8 +91,8 @@ type DiveCardProps = {
   title: string;
   description: string;
   status: Status;
-  dive_type: number;
-  access_type: number;
+  dive_type: string;
+  access_type: string;
   link: string,
   newsletterLink: string
 } & Omit<PaperProps, 'children'>;
