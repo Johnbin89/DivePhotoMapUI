@@ -17,12 +17,13 @@ import { Metadata } from 'next';
 import { LatLngExpression } from 'leaflet';
 import { FC, Key, ReactNode, Suspense, useEffect, useRef, useState } from 'react';
 import { useFetchData, useFetchSWR } from '@/hooks';
-import {LazyPopup, LazyMarker, LazyMap, LazyMarkerCluster} from '@/components/LazyLeaflet/LazyPopup';
+import {LazyPopup, LazyMarker, LazyMap, LazyMarkerCluster, LazyMarkerWithIcon} from '@/components/LazyLeaflet/LazyPopup';
 import LazyDiveCard from '@/components/DiveCard/LazyDiveCard'
 import styled from '@emotion/styled';
 import GuestLayout from '@/layout/Guest';
 import { useMounted } from '@mantine/hooks';
 import Loading from './loading';
+import { diveTypeIcon } from '@/components/MapMain/Icons';
 
 const items = [
   { title: 'Dashboard', href: PATH_MAP.public },
@@ -70,9 +71,10 @@ function HomePage() {
       <LazyMap centerposition={profIliasPosition} mapRef={mapRef}>
         <LazyMarkerCluster>
           {markersData?.map((marker:any , index: Key) => (
-            <LazyMarker
+            <LazyMarkerWithIcon
               key={index}
               position={[marker.posLat, marker.posLng]}
+              dive_type={marker.divespot.dive_type}
             >
               <LazyPopup minWidth={190}>
                 <style jsx global>{`
@@ -92,7 +94,7 @@ function HomePage() {
                 />
               </LazyPopup>
 
-            </LazyMarker>
+            </LazyMarkerWithIcon>
           ))}
         </LazyMarkerCluster>
       </LazyMap>

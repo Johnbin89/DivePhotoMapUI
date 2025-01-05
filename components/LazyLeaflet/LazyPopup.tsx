@@ -14,9 +14,13 @@ const LazyMarker = dynamic(  async () => (await import('react-leaflet')).Marker,
   ssr: false,
 });
 
+const LazyMarkerWithIcon = dynamic( async () => (await import("@/components/LazyLeaflet/MarkerWithIcon")), {
+  ssr: false,
+});
+
 const LazyMarkerCluster = dynamic(  async () => (await import('@/components/LazyLeaflet/MarkerCluster')),
 {
   ssr: false,
 });
 
-export {LazyPopup, LazyMarker, LazyMap, LazyMarkerCluster}
+export {LazyPopup, LazyMarker, LazyMap, LazyMarkerCluster, LazyMarkerWithIcon}
